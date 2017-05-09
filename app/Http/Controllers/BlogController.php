@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Mahasiswa;
+use App\Blog;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -15,9 +15,9 @@ class BlogController extends Controller
     public function index()
     {
         // variable dari semua model mahasiswa
-        $semuamahasiswa = Mahasiswa::all();
+        $blogs = Blog::all();
         // passing variable ke view
-        return view('mahasiswa.index')->withSemuamahasiswa($semuamahasiswa);
+        return view('blog.index')->withBlogs($blogs);
     }
 
     /**
@@ -27,7 +27,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('mahasiswa.create');
+        return view('blog.create');
     }
 
     /**
@@ -51,73 +51,73 @@ class BlogController extends Controller
 
         // simpan ke database request tertentu
         /*
-        $mahasiswa = new Mahasiswa;
-        $mahasiswa->nim = $request->nim;
-        $mahasiswa->nama = $request->nama;
-        $mahasiswa->alamat = $request->alamat;
-        $mahasiswa->telepon = $request->telepon;
-        $mahasiswa->jenis_kelamin = $request->jenis_kelamin;
-        $mahasiswa->agama = $request->agama;
-        $mahasiswa->save();
+        $blog = new Mahasiswa;
+        $blog->nim = $request->nim;
+        $blog->nama = $request->nama;
+        $blog->alamat = $request->alamat;
+        $blog->telepon = $request->telepon;
+        $blog->jenis_kelamin = $request->jenis_kelamin;
+        $blog->agama = $request->agama;
+        $blog->save();
         */
 
         // simpan ke database semua request
-        \App\Mahasiswa::create($request->all());
+        \App\Blog::create($request->all());
 
         // flash messages
         $request->session()->flash('status', 'Data berhasil disimpan!');
 
         // redirect ke halaman
-        return redirect()->route('mahasiswa.index');
+        return redirect()->route('blog.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Mahasiswa  $mahasiswa
+     * @param  \App\Mahasiswa  $blog
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $mahasiswa = Mahasiswa::findOrFail($id);
-        return view('mahasiswa.show', compact('mahasiswa'));
+        $blog = Blog::findOrFail($id);
+        return view('blog.show', compact('blog'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Mahasiswa  $mahasiswa
+     * @param  \App\Mahasiswa  $blog
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $mahasiswa = Mahasiswa::findOrFail($id);
-        return view('mahasiswa.edit-helper', compact('mahasiswa'));
+        $blog = Blog::findOrFail($id);
+        return view('blog.edit-helper', compact('blog'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Mahasiswa  $mahasiswa
+     * @param  \App\Mahasiswa  $blog
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $mahasiswa = Mahasiswa::findOrFail($id);
-        $mahasiswa->update($request->all());
-        return redirect()->route('mahasiswa.index')->with('status','Data berhasil diperbarui.');
+        $blog = Blog::findOrFail($id);
+        $blog->update($request->all());
+        return redirect()->route('blog.index')->with('status','Data berhasil diperbarui.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Mahasiswa  $mahasiswa
+     * @param  \App\Mahasiswa  $blog
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $mahasiswa = Mahasiswa::findOrFail($id)->delete();
-        return redirect()->route('mahasiswa.index')->with('status','Data berhasil dihapus.');
+        $blog = Blog::findOrFail($id)->delete();
+        return redirect()->route('blog.index')->with('status','Data berhasil dihapus.');
     }
 }
