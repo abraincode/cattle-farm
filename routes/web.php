@@ -45,3 +45,12 @@ Route::get('/', 'PageController@home')->name('page.home');
 Route::get('/about', 'PageController@about')->name('page.about');
 Route::get('/blog', 'PageController@blog')->name('page.blog');
 Route::get('/contact', 'PageController@contact')->name('page.contact');
+
+
+Route::post('/blog', 'BlogController@store')->name('blog.store');
+//Route::get('/blog', 'BlogController@index')->name('blog.index');
+Route::get('/blog/create', 'BlogController@create')->name('blog.create');
+Route::delete('/blog/{id}', 'BlogController@destroy')->name('blog.destroy');
+Route::put('/blog/{id}', 'BlogController@update')->name('blog.update');
+Route::get('/blog/{id}', 'BlogController@show')->name('blog.show');
+Route::get('/blog/{id}/edit', 'BlogController@edit')->name('blog.edit');
