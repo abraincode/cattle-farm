@@ -44,3 +44,4 @@ Route::post('/test-request', function () {
 Route::get('/', 'PageController@home')->name('page.home');
 Route::get('/about', 'PageController@about')->name('page.about');
 Route::get('/blog', 'PageController@blog')->name('page.blog');
+Route::get('/contact', 'PageController@contact')->name('page.contact');

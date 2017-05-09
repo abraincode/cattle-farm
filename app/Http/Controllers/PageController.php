@@ -25,4 +25,9 @@ class PageController extends Controller
     {
         return view('page.blog');
     }
+
+    public function contact()
+    {
+        return view('page.contact');
+    }
 }
