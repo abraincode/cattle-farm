@@ -55,11 +55,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav class="menu menu--shylock">
 						<ul class="nav navbar-nav link-effect-7" id="link-effect-7">
-							<li class="active"><a href="index.html" data-hover="Home">Home</a></li>
-							<li><a href="about.html" data-hover="About Us">About Us</a></li>
-							<li><a href="blog.html" data-hover="Blog">Blog</a></li>
-							<li><a href="short-codes.html" data-hover="Short Codes">Short Codes</a></li>
-							<li><a href="mail.html" data-hover="Mail Us">Mail Us</a></li>
+							<li class="active"><a href="/" data-hover="Home">Home</a></li>
+							<li><a href="about" data-hover="About Us">About Us</a></li>
+							<li><a href="blog" data-hover="Blog">Blog</a></li>
+							<li><a href="contact" data-hover="Contact Us">Contact Us</a></li>
 						</ul>
 					</nav>
 				</div>
