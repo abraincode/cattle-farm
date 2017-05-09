@@ -46,11 +46,12 @@ Route::get('/about', 'PageController@about')->name('page.about');
 Route::get('/blog', 'PageController@blog')->name('page.blog');
 Route::get('/contact', 'PageController@contact')->name('page.contact');
 
-
-Route::post('/blog', 'PostController@store')->name('blog.store');
-//Route::get('/blog', 'PostController@index')->name('blog.index');
-Route::get('/blog/create', 'PostController@create')->name('blog.create');
-Route::delete('/blog/{id}', 'PostController@destroy')->name('blog.destroy');
-Route::put('/blog/{id}', 'PostController@update')->name('blog.update');
-Route::get('/blog/{id}', 'PostController@show')->name('blog.show');
-Route::get('/blog/{id}/edit', 'PostController@edit')->name('blog.edit');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+  Route::post('/post', 'PostController@store')->name('admin.post.store');
+  Route::get('/post', 'PostController@index')->name('admin.post.index');
+  Route::get('/post/create', 'PostController@create')->name('admin.post.create');
+  Route::delete('/post/{id}', 'PostController@destroy')->name('admin.post.destroy');
+  Route::put('/post/{id}', 'PostController@update')->name('admin.post.update');
+  Route::get('/post/{id}', 'PostController@show')->name('admin.post.show');
+  Route::get('/post/{id}/edit', 'PostController@edit')->name('admin.post.edit');
+});
