@@ -47,10 +47,10 @@ Route::get('/blog', 'PageController@blog')->name('page.blog');
 Route::get('/contact', 'PageController@contact')->name('page.contact');
 
 
-Route::post('/blog', 'BlogController@store')->name('blog.store');
-//Route::get('/blog', 'BlogController@index')->name('blog.index');
-Route::get('/blog/create', 'BlogController@create')->name('blog.create');
-Route::delete('/blog/{id}', 'BlogController@destroy')->name('blog.destroy');
-Route::put('/blog/{id}', 'BlogController@update')->name('blog.update');
-Route::get('/blog/{id}', 'BlogController@show')->name('blog.show');
-Route::get('/blog/{id}/edit', 'BlogController@edit')->name('blog.edit');
+Route::post('/blog', 'PostController@store')->name('blog.store');
+//Route::get('/blog', 'PostController@index')->name('blog.index');
+Route::get('/blog/create', 'PostController@create')->name('blog.create');
+Route::delete('/blog/{id}', 'PostController@destroy')->name('blog.destroy');
+Route::put('/blog/{id}', 'PostController@update')->name('blog.update');
+Route::get('/blog/{id}', 'PostController@show')->name('blog.show');
+Route::get('/blog/{id}/edit', 'PostController@edit')->name('blog.edit');
