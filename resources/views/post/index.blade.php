@@ -10,34 +10,32 @@
       @endif
         <div>
             <div class="panel panel-default">
-                <div class="panel-heading">Daftar Mahasiswa</div>
+                <div class="panel-heading">All Posts</div>
                 <div class="panel-body">
                   <table class="table table-hover table-striped">
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>NIM</th>
-                      <th>Nama</th>
-                      <th>Alamat</th>
-                      <th>Telepon</th>
-                      <th>Jenis Kelamin</th>
-                      <th>Agama</th>
-                      <th>Dibuat</th>
+                      <th>Slug</th>
+                      <th>Title</th>
+                      <th>Content</th>
+                      <th>Category</th>
+                      <th>Thumbnails</th>
+                      <th>Created At</th>
                       <th></th>
                     </tr>
                   </thead>
                   <tbody>
-                  @foreach ($semuamahasiswa as $mahasiswa)
+                  @foreach ($posts as $post)
                     <tr>
-                      <td>{{ $mahasiswa->id }}</td>
-                      <td>{{ $mahasiswa->nim }}</td>
-                      <td>{{ $mahasiswa->nama }}</td>
-                      <td>{{ $mahasiswa->alamat }}</td>
-                      <td>{{ $mahasiswa->telepon }}</td>
-                      <td>{{ $mahasiswa->jenis_kelamin }}</td>
-                      <td>{{ $mahasiswa->agama }}</td>
-                      <td>{{ $mahasiswa->created_at->format('M d, Y') }}</td>
-                      <td><a href="{{ route('mahasiswa.show', $mahasiswa->id) }}" class="btn btn-success btn-sm">View</a></td>
+                      <td>{{ $post->id }}</td>
+                      <td>{{ $post->slug }}</td>
+                      <td>{{ $post->title }}</td>
+                      <td>{{ $post->content }}</td>
+                      <td>{{ $post->category }}</td>
+                      <td>{{ $post->thumbnails }}</td>
+                      <td>{{ $post->created_at->format('M d, Y') }}</td>
+                      <td><a href="{{ route('page.blog.show', $post->id) }}" class="btn btn-success btn-sm">View</a></td>
                     </tr>
                   @endforeach
                   </tbody>
