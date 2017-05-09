@@ -20,4 +20,9 @@ class PageController extends Controller
     {
         return view('page.about');
     }
+
+    public function blog()
+    {
+        return view('page.blog');
+    }
 }
