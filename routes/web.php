@@ -40,3 +40,5 @@ Route::post('/test-request', function () {
     $request = app('Illuminate\Http\Request');
     dd($request->all());
 })->name('test-request');
+
+Route::get('/', 'PageController@home')->name('page.home');
