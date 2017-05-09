@@ -57,8 +57,24 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li class="dropdown">
-                              <li><a href="{{ route('admin.post.index') }}">Lists</a></li>
-                              <li><a href="{{ route('admin.post.create') }}">Create New</a></li>
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                  Lists <span class="caret"></span>
+                              </a>
+                              <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ route('admin.post.index') }}">Posts</a></li>
+                                <li><a href="{{ route('admin.category.index') }}">Category</a></li>
+                                <li><a href="{{ route('admin.tags.index') }}">Tags</a></li>
+                              </ul>
+                            </li>
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                  Add <span class="caret"></span>
+                              </a>
+                              <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ route('admin.post.create') }}">Posts</a></li>
+                                <li><a href="{{ route('admin.category.create') }}">Category</a></li>
+                                <li><a href="{{ route('admin.tags.create') }}">Tags</a></li>
+                              </ul>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
