@@ -54,22 +54,8 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                  Daftar <span class="caret"></span>
-                              </a>
-                              <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ route('mahasiswa.index') }}">Mahasiswa</a></li>
-                                <li><a href="{{ route('nerds.index') }}">Nerds</a></li>
-                              </ul>
-                            </li>
-                            <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                  Tambah <span class="caret"></span>
-                              </a>
-                              <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ route('mahasiswa.create') }}">Mahasiswa</a></li>
-                                <li><a href="{{ route('nerds.create') }}">Nerds</a></li>
-                              </ul>
+                              <li><a href="{{ route('admin.post.index') }}">Daftar</a></li>
+                              <li><a href="{{ route('admin.post.create') }}">Tambah</a></li>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
