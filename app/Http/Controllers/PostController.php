@@ -15,9 +15,9 @@ class PostController extends Controller
     public function index()
     {
         // variable dari semua model mahasiswa
-        $blogs = Blog::all();
+        $posts = Post::all();
         // passing variable ke view
-        return view('blog.index')->withBlogs($blogs);
+        return view('post.index')->withPosts($posts);
     }
 
     /**
@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('blog.create');
+        return view('post.create');
     }
 
     /**
@@ -51,73 +51,73 @@ class PostController extends Controller
 
         // simpan ke database request tertentu
         /*
-        $blog = new Mahasiswa;
-        $blog->nim = $request->nim;
-        $blog->nama = $request->nama;
-        $blog->alamat = $request->alamat;
-        $blog->telepon = $request->telepon;
-        $blog->jenis_kelamin = $request->jenis_kelamin;
-        $blog->agama = $request->agama;
-        $blog->save();
+        $post = new Mahasiswa;
+        $post->nim = $request->nim;
+        $post->nama = $request->nama;
+        $post->alamat = $request->alamat;
+        $post->telepon = $request->telepon;
+        $post->jenis_kelamin = $request->jenis_kelamin;
+        $post->agama = $request->agama;
+        $post->save();
         */
 
         // simpan ke database semua request
-        \App\Blog::create($request->all());
+        \App\Post::create($request->all());
 
         // flash messages
         $request->session()->flash('status', 'Data berhasil disimpan!');
 
         // redirect ke halaman
-        return redirect()->route('blog.index');
+        return redirect()->route('post.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Mahasiswa  $blog
+     * @param  \App\Mahasiswa  $post
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $blog = Blog::findOrFail($id);
-        return view('blog.show', compact('blog'));
+        $post = Post::findOrFail($id);
+        return view('post.show', compact('blog'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Mahasiswa  $blog
+     * @param  \App\Mahasiswa  $post
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $blog = Blog::findOrFail($id);
-        return view('blog.edit-helper', compact('blog'));
+        $post = Post::findOrFail($id);
+        return view('post.edit-helper', compact('blog'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Mahasiswa  $blog
+     * @param  \App\Mahasiswa  $post
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $blog = Blog::findOrFail($id);
-        $blog->update($request->all());
-        return redirect()->route('blog.index')->with('status','Data berhasil diperbarui.');
+        $post = Post::findOrFail($id);
+        $post->update($request->all());
+        return redirect()->route('post.index')->with('status','Data berhasil diperbarui.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Mahasiswa  $blog
+     * @param  \App\Mahasiswa  $post
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $blog = Blog::findOrFail($id)->delete();
-        return redirect()->route('blog.index')->with('status','Data berhasil dihapus.');
+        $post = Post::findOrFail($id)->delete();
+        return redirect()->route('post.index')->with('status','Data berhasil dihapus.');
     }
 }
