@@ -44,6 +44,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
+                        <li class="dropdown">
+                          <li><a href="{{ route('page.home') }}">Home</a></li>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -54,8 +57,8 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li class="dropdown">
-                              <li><a href="{{ route('admin.post.index') }}">Daftar</a></li>
-                              <li><a href="{{ route('admin.post.create') }}">Tambah</a></li>
+                              <li><a href="{{ route('admin.post.index') }}">Lists</a></li>
+                              <li><a href="{{ route('admin.post.create') }}">Create New</a></li>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
