@@ -57,4 +57,23 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
   Route::put('/post/{id}', 'PostController@update')->name('admin.post.update');
   Route::get('/post/{id}', 'PostController@show')->name('admin.post.show');
   Route::get('/post/{id}/edit', 'PostController@edit')->name('admin.post.edit');
+
+  // Category
+  Route::post('/category', 'PostController@store')->name('admin.category.store');
+  Route::get('/category', 'PostController@index')->name('admin.category.index');
+  Route::get('/category/create', 'PostController@create')->name('admin.category.create');
+  Route::delete('/category/{id}', 'PostController@destroy')->name('admin.category.destroy');
+  Route::put('/category/{id}', 'PostController@update')->name('admin.category.update');
+  Route::get('/category/{id}', 'PostController@show')->name('admin.category.show');
+  Route::get('/category/{id}/edit', 'PostController@edit')->name('admin.category.edit');
+
+  // Tags
+  Route::post('/tags', 'PostController@store')->name('admin.tags.store');
+  Route::get('/tags', 'PostController@index')->name('admin.tags.index');
+  Route::get('/tags/create', 'PostController@create')->name('admin.tags.create');
+  Route::delete('/tags/{id}', 'PostController@destroy')->name('admin.tags.destroy');
+  Route::put('/tags/{id}', 'PostController@update')->name('admin.tags.update');
+  Route::get('/tags/{id}', 'PostController@show')->name('admin.tags.show');
+  Route::get('/tags/{id}/edit', 'PostController@edit')->name('admin.tags.edit');
+
 });
