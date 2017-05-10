@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "parsleyjs": "^2.7.2"
+    "parsleyjs": "^2.7.2",
+    "select2": "^4.0.3"
   }
 }
