@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Tag;
+use Session;
 
 class TagController extends Controller
 {
@@ -13,7 +15,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::all();
+        return view('dashboard.tags.index')->withTags($tags);
     }
 
     /**
@@ -34,7 +37,12 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, array('name' => 'required|max:255'));
+        $tag = new Tag;
+        $tag->name = $request->name;
+        $tag->save();
+        Session::flash('success', 'New Tag was successfully created!');
+        return redirect()->route('admin.tags.index');
     }
 
     /**
@@ -45,7 +53,8 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        //
+        $tag = Tag::find($id);
+        return view('admin.tags.show')->withTag($tag);
     }
 
     /**
@@ -56,7 +65,8 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tag = Tag::find($id);
+        return view('admin.tags.edit')->withTag($tag);
     }
 
     /**
@@ -68,7 +78,12 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tag = Tag::find($id);
+        $this->validate($request, ['name' => 'required|max:255']);
+        $tag->name = $request->name;
+        $tag->save();
+        Session::flash('success', 'Successfully saved your new tag!');
+        return redirect()->route('admin.tags.show', $tag->id);
     }
 
     /**
@@ -79,6 +94,10 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tag = Tag::find($id);
+        $tag->posts()->detach();
+        $tag->delete();
+        Session::flash('success', 'Tag was deleted successfully');
+        return redirect()->route('admin.tags.index');
     }
 }
