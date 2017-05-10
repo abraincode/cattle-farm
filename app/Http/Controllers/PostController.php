@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use App\Tag;
+use App\Category;
+use Session;
 
 class PostController extends Controller
 {
@@ -15,7 +18,7 @@ class PostController extends Controller
     public function index()
     {
         // variable dari semua model mahasiswa
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'desc')->paginate(10);
         // passing variable ke view
         return view('dashboard.posts.index')->withPosts($posts);
     }
@@ -27,7 +30,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('dashboard.posts.create');
+        $categories = Category::all();
+        $tags = Tag::all();
+        return view('dashboard.posts.create')->withCategories($categories)->withTags($tags);
     }
 
     /**
