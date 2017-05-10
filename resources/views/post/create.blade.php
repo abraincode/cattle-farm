@@ -5,109 +5,57 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Tambah Mahasiswa</div>
+                <div class="panel-heading">Add Post</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('mahasiswa.store') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.post.store') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('nim') ? ' has-error' : '' }}">
-                            <label for="nim" class="col-md-4 control-label">NIM</label>
+                        <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+                            <label for="title" class="col-md-4 control-label">Title</label>
 
                             <div class="col-md-6">
-                                <input id="nim" type="text" class="form-control" name="nim" value="{{ old('nim') }}" required autofocus>
+                                <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" required autofocus>
 
-                                @if ($errors->has('nim'))
+                                @if ($errors->has('title'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('nim') }}</strong>
+                                        <strong>{{ $errors->first('title') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
-                            <label for="nama" class="col-md-4 control-label">Nama</label>
+                        <div class="form-group{{ $errors->has('slug') ? ' has-error' : '' }}">
+                            <label for="slug" class="col-md-4 control-label">Slug</label>
 
                             <div class="col-md-6">
-                                <input id="nama" type="text" class="form-control" name="nama" value="{{ old('nama') }}" required autofocus>
+                                <input id="slug" type="text" class="form-control" name="slug" value="{{ old('slug') }}" required autofocus>
 
-                                @if ($errors->has('nama'))
+                                @if ($errors->has('slug'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('nama') }}</strong>
+                                        <strong>{{ $errors->first('slug') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('alamat') ? ' has-error' : '' }}">
-                            <label for="alamat" class="col-md-4 control-label">Alamat</label>
+                        <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
+                            <label for="content" class="col-md-4 control-label">Content</label>
 
                             <div class="col-md-6">
-                                <textarea name="alamat" rows="8" cols="80" id="alamat" type="text" class="form-control" value="{{ old('alamat') }}" required></textarea>
+                                <textarea name="content" rows="8" cols="80" id="slug" type="text" class="form-control" value="{{ old('content') }}" required></textarea>
 
-                                @if ($errors->has('alamat'))
+                                @if ($errors->has('content'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('alamat') }}</strong>
+                                        <strong>{{ $errors->first('content') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('telepon') ? ' has-error' : '' }}">
-                            <label for="telepon" class="col-md-4 control-label">Telepon</label>
-
-                            <div class="col-md-6">
-                                <input id="telepon" type="text" class="form-control" name="telepon" required>
-
-                                @if ($errors->has('telepon'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('telepon') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="jenis_kelamin" class="col-md-4 control-label">Jenis Kelamin</label>
-
-                            <div class="col-md-6">
-                              <div class="radio">
-                                <label><input type="radio" name="jenis_kelamin" value="Laki-laki">Laki-laki</label>
-                                <label><input type="radio" name="jenis_kelamin" value="Perempuan">Perempuan</label>
-                              </div>
-                            </div>
-
-                            @if ($errors->has('jenis_kelamin'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('jenis_kelamin') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-
-                        <div class="form-group">
-                            <label for="agama" class="col-md-4 control-label">Agama</label>
-
-                            <div class="col-md-6">
-                              <select class="form-control" id="agama" name="agama">
-                                <option selected="selected">-- Pilih --</option>
-                                <option value="Islam">Islam</option>
-                                <option value="Kristen">Kristen</option>
-                                <option value="Hindu">Hindu</option>
-                                <option value="Buddha">Buddha</option>
-                                <option value="Konghucu">Konghucu</option>
-                              </select>
-                            </div>
-
-                            @if ($errors->has('agama'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('agama') }}</strong>
-                                </span>
-                            @endif
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Daftar
+                                    Publish
                                 </button>
                             </div>
                         </div>
