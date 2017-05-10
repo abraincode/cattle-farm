@@ -17,7 +17,7 @@ class PostController extends Controller
         // variable dari semua model mahasiswa
         $posts = Post::all();
         // passing variable ke view
-        return view('post.index')->withPosts($posts);
+        return view('dashboard.posts.index')->withPosts($posts);
     }
 
     /**
@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('post.create');
+        return view('dashboard.posts.create');
     }
 
     /**
@@ -40,12 +40,10 @@ class PostController extends Controller
     {
         // validasi data
         $this->validate($request, array(
-                'nim'            => 'required|numeric',
-                'nama'           => 'required|max:255',
-                'alamat'         => 'required',
-                'telepon'        => 'required|numeric',
-                'jenis_kelamin'  => 'required',
-                'agama'          => 'required',
+                'title'         => 'required|max:255',
+                'slug'          => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
+                'category_id'   => 'required|integer',
+                'body'          => 'required'
 
             ));
 
@@ -68,7 +66,7 @@ class PostController extends Controller
         $request->session()->flash('status', 'Data berhasil disimpan!');
 
         // redirect ke halaman
-        return redirect()->route('post.index');
+        return redirect()->route('admin.post.index');
     }
 
     /**
@@ -80,7 +78,7 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
-        return view('post.show', compact('blog'));
+        return view('dashboard.post.show', compact('blog'));
     }
 
     /**
@@ -92,7 +90,7 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
-        return view('post.edit-helper', compact('blog'));
+        return view('dashboard.posts.edit', compact('blog'));
     }
 
     /**
@@ -106,7 +104,7 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->update($request->all());
-        return redirect()->route('post.index')->with('status','Data berhasil diperbarui.');
+        return redirect()->route('admin.post.index')->with('status','Data berhasil diperbarui.');
     }
 
     /**
@@ -118,6 +116,6 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::findOrFail($id)->delete();
-        return redirect()->route('post.index')->with('status','Data berhasil dihapus.');
+        return redirect()->route('admin.post.index')->with('status','Data berhasil dihapus.');
     }
 }
