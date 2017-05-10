@@ -59,21 +59,21 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
   Route::get('/post/{id}/edit', 'PostController@edit')->name('admin.post.edit');
 
   // Category
-  Route::post('/category', 'PostController@store')->name('admin.category.store');
-  Route::get('/category', 'PostController@index')->name('admin.category.index');
-  Route::get('/category/create', 'PostController@create')->name('admin.category.create');
-  Route::delete('/category/{id}', 'PostController@destroy')->name('admin.category.destroy');
-  Route::put('/category/{id}', 'PostController@update')->name('admin.category.update');
-  Route::get('/category/{id}', 'PostController@show')->name('admin.category.show');
-  Route::get('/category/{id}/edit', 'PostController@edit')->name('admin.category.edit');
+  Route::post('/category', 'CategoryController@store')->name('admin.category.store');
+  Route::get('/category', 'CategoryController@index')->name('admin.category.index');
+  Route::get('/category/create', 'CategoryController@create')->name('admin.category.create');
+  Route::delete('/category/{id}', 'CategoryController@destroy')->name('admin.category.destroy');
+  Route::put('/category/{id}', 'CategoryController@update')->name('admin.category.update');
+  Route::get('/category/{id}', 'CategoryController@show')->name('admin.category.show');
+  Route::get('/category/{id}/edit', 'CategoryController@edit')->name('admin.category.edit');
 
   // Tags
-  Route::post('/tags', 'PostController@store')->name('admin.tags.store');
-  Route::get('/tags', 'PostController@index')->name('admin.tags.index');
-  Route::get('/tags/create', 'PostController@create')->name('admin.tags.create');
-  Route::delete('/tags/{id}', 'PostController@destroy')->name('admin.tags.destroy');
-  Route::put('/tags/{id}', 'PostController@update')->name('admin.tags.update');
-  Route::get('/tags/{id}', 'PostController@show')->name('admin.tags.show');
-  Route::get('/tags/{id}/edit', 'PostController@edit')->name('admin.tags.edit');
+  Route::post('/tags', 'TagController@store')->name('admin.tags.store');
+  Route::get('/tags', 'TagController@index')->name('admin.tags.index');
+  Route::get('/tags/create', 'TagController@create')->name('admin.tags.create');
+  Route::delete('/tags/{id}', 'TagController@destroy')->name('admin.tags.destroy');
+  Route::put('/tags/{id}', 'TagController@update')->name('admin.tags.update');
+  Route::get('/tags/{id}', 'TagController@show')->name('admin.tags.show');
+  Route::get('/tags/{id}/edit', 'TagController@edit')->name('admin.tags.edit');
 
 });
