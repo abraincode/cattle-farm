@@ -16,11 +16,11 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Slug</th>
+                      <th>Thumbnails</th>
                       <th>Title</th>
+                      <th>Slug</th>
                       <th>Content</th>
                       <th>Category</th>
-                      <th>Thumbnails</th>
                       <th>Created At</th>
                       <th></th>
                     </tr>
@@ -29,11 +29,11 @@
                   @foreach ($posts as $post)
                     <tr>
                       <td>{{ $post->id }}</td>
-                      <td>{{ $post->slug }}</td>
+                      <td>{{ $post->thumbnails }}</td>
                       <td>{{ $post->title }}</td>
+                      <td>{{ $post->slug }}</td>
                       <td>{{ $post->content }}</td>
                       <td>{{ $post->category }}</td>
-                      <td>{{ $post->thumbnails }}</td>
                       <td>{{ $post->created_at->format('M d, Y') }}</td>
                       <td><a href="{{ route('page.blog.show', $post->id) }}" class="btn btn-success btn-sm">View</a></td>
                     </tr>
