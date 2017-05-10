@@ -28,7 +28,7 @@
 
 		<div class="col-md-3">
 			<div class="well">
-				{!! Form::open(['route' => 'categories.store', 'method' => 'POST']) !!}
+				{!! Form::open(['route' => 'admin.category.store', 'method' => 'POST']) !!}
 					<h2>New Category</h2>
 					{{ Form::label('name', 'Name:') }}
 					{{ Form::text('name', null, ['class' => 'form-control']) }}
