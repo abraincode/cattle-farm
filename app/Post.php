@@ -6,19 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'nim', 'nama', 'alamat', 'telepon', 'jenis_kelamin', 'agama',
-    ];
+    public function category()
+    {
+      return $this->belongsTo('App\Category');
+    }
 
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'mahasiswa';
+    public function tags()
+    {
+      return $this->belongsToMany('App\Tag');
+    }
 }
