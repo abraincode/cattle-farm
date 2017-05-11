@@ -59,7 +59,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        return view('dashboard.categories.show')->withCategory($category);
     }
 
     /**
@@ -70,7 +71,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        return view('dashboard.categories.edit')->withCategory($category);
     }
 
     /**
@@ -82,7 +84,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $this->validate($request, ['name' => 'required|max:255']);
+        $category->name = $request->name;
+        $category->save();
+        Session::flash('success', 'Successfully saved your category tag!');
+        return redirect()->route('admin.category.show', $category->id);
     }
 
     /**
@@ -93,6 +100,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        //$category->posts()->detach();
+        $category->delete();
+        Session::flash('success', 'Category was deleted successfully');
+        return redirect()->route('admin.category.index');
     }
 }
