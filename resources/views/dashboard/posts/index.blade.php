@@ -22,6 +22,7 @@
 			<table class="table">
 				<thead>
 					<th>#</th>
+					<th>Thumbnails</th>
 					<th>Title</th>
 					<th>Content</th>
 					<th>Created At</th>
@@ -34,6 +35,7 @@
 
 						<tr>
 							<th>{{ $post->id }}</th>
+							<td><img src="/images/{{ $post->image }}" alt="" style="height:70px; width:150px;"></td>
 							<td>{{ $post->title }}</td>
 							<td>{{ substr(strip_tags($post->content), 0, 50) }}{{ strlen(strip_tags($post->content)) > 50 ? "..." : "" }}</td>
 							<td>{{ date('M j, Y', strtotime($post->created_at)) }}</td>
