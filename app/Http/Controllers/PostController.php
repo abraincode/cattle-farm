@@ -122,8 +122,8 @@ class PostController extends Controller
             $tags2[$tag->id] = $tag->name;
         }
         // return the view and pass in the var we previously created
-        //return view('posts.edit')->withPost($post)->withCategories($cats)->withTags($tags2);
-        return view('dashboard.posts.edit', compact('blog','cats','tags2'));
+        return view('dashboard.posts.edit')->withPost($post)->withCategories($cats)->withTags($tags2);
+        //return view('dashboard.posts.edit', compact('post','cats','tags2'));
     }
 
     /**
