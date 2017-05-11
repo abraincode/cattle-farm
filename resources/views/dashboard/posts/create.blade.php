@@ -4,8 +4,8 @@
 
 @section('stylesheets')
 
-	{!! Html::style('css/parsley.css') !!}
-	{!! Html::style('css/select2.css') !!}
+	{!! Html::style('css/parsley.min.css') !!}
+	{!! Html::style('css/select2.min.css') !!}
 	<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 
 	<script>
@@ -64,8 +64,8 @@
 
 @section('scripts')
 
-	{!! Html::script('js/parsley.js') !!}
-	{!! Html::script('js/select2.js') !!}
+	{!! Html::script('js/parsley.min.js') !!}
+	{!! Html::script('js/select2.min.js') !!}
 
 	<script type="text/javascript">
 		$('.select2-multi').select2();

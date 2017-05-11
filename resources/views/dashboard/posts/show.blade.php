@@ -24,7 +24,7 @@
 			<div class="well">
 				<dl class="dl-horizontal">
 					<label>Url:</label>
-					<p><a href="{{ route('admin.post.show.slug', $post->slug) }}">{{ route('admin.post.show.slug', $post->slug) }}</a></p>
+					<p><a href="{{ route('admin.post.show', $post->id) }}">{{ route('admin.post.show', $post->id) }}</a></p>
 				</dl>
 
 				<dl class="dl-horizontal">
@@ -44,10 +44,10 @@
 				<hr>
 				<div class="row" style="padding-bottom:5%;">
 					<div class="col-sm-6">
-						{!! Html::linkRoute('admin.post.edit', 'Edit', array($post->slug), array('class' => 'btn btn-primary btn-block')) !!}
+						{!! Html::linkRoute('admin.post.edit', 'Edit', array($post->id), array('class' => 'btn btn-primary btn-block')) !!}
 					</div>
 					<div class="col-sm-6">
-						{!! Form::open(['route' => ['admin.post.destroy', $post->slug], 'method' => 'DELETE']) !!}
+						{!! Form::open(['route' => ['admin.post.destroy', $post->id], 'method' => 'DELETE']) !!}
 
 						{!! Form::submit('Delete', ['class' => 'btn btn-danger btn-block']) !!}
 
