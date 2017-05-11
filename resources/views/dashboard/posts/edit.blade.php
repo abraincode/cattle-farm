@@ -21,7 +21,7 @@
 @section('content')
 
 	<div class="row">
-		{!! Form::model($post, ['route' => ['admin.post.update', $post->id], 'method' => 'PUT']) !!}
+		{!! Form::model($post, ['route' => ['admin.post.update', $post->slug], 'method' => 'PUT']) !!}
 		<div class="col-md-8">
 			{{ Form::label('title', 'Title:') }}
 			{{ Form::text('title', null, ["class" => 'form-control input-lg']) }}
@@ -53,7 +53,7 @@
 				<hr>
 				<div class="row">
 					<div class="col-sm-6">
-						{!! Html::linkRoute('admin.post.show', 'Cancel', array($post->id), array('class' => 'btn btn-danger btn-block')) !!}
+						{!! Html::linkRoute('admin.post.show.slug', 'Cancel', array($post->slug), array('class' => 'btn btn-danger btn-block')) !!}
 					</div>
 					<div class="col-sm-6">
 						{{ Form::submit('Save Changes', ['class' => 'btn btn-success btn-block']) }}
