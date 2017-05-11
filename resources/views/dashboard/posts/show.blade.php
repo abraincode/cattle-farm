@@ -8,7 +8,7 @@
 		<div class="col-md-8">
 			<h1>{{ $post->title }}</h1>
 
-			<p class="lead">{!! $post->body !!}</p>
+			<p class="lead">{!! $post->content !!}</p>
 
 			<hr>
 
@@ -18,28 +18,13 @@
 				@endforeach
 			</div>
 
-			<div id="backend-comments" style="margin-top: 50px;">
-				<h3>Comments <small>{{ $post->comments()->count() }} total</small></h3>
-
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Email</th>
-							<th>Comment</th>
-							<th width="70px"></th>
-						</tr>
-					</thead>
-
-				</table>
-			</div>
 		</div>
 
 		<div class="col-md-4">
 			<div class="well">
 				<dl class="dl-horizontal">
 					<label>Url:</label>
-					<p><a href="{{ route('blog.single', $post->slug) }}">{{ route('blog.single', $post->slug) }}</a></p>
+					<p><a href="{{ route('admin.post.show', $post->slug) }}">{{ route('admin.post.show', $post->slug) }}</a></p>
 				</dl>
 
 				<dl class="dl-horizontal">
@@ -57,7 +42,7 @@
 					<p>{{ date('M j, Y h:ia', strtotime($post->updated_at)) }}</p>
 				</dl>
 				<hr>
-				<div class="row">
+				<div class="row" style="padding-bottom:5%;">
 					<div class="col-sm-6">
 						{!! Html::linkRoute('admin.post.edit', 'Edit', array($post->id), array('class' => 'btn btn-primary btn-block')) !!}
 					</div>

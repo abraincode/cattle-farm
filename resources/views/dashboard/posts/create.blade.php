@@ -5,7 +5,7 @@
 @section('stylesheets')
 
 	{!! Html::style('css/parsley.css') !!}
-	{!! Html::style('css/select2.min.css') !!}
+	{!! Html::style('css/select2.css') !!}
 	<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 
 	<script>
@@ -26,10 +26,10 @@
 			<hr>
 			{!! Form::open(array('route' => 'admin.post.store', 'data-parsley-validate' => '', 'files' => true)) !!}
 				{{ Form::label('title', 'Title:') }}
-				{{ Form::text('title', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255')) }}
+				{{ Form::text('title', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255', 'placeholder' => 'Contoh: Kandungan Vitamin pada Susu Sapi Murni')) }}
 
 				{{ Form::label('slug', 'Slug:') }}
-				{{ Form::text('slug', null, array('class' => 'form-control', 'required' => '', 'minlength' => '5', 'maxlength' => '255') ) }}
+				{{ Form::text('slug', null, array('class' => 'form-control', 'placeholder' => 'Contoh: kandungan-vitamin-pada-susu-sapi-murni') ) }}
 
 				{{ Form::label('category_id', 'Category:') }}
 				<select class="form-control" name="category_id">
@@ -51,8 +51,8 @@
 				{{ Form::label('featured_img', 'Upload a Featured Image') }}
 				{{ Form::file('featured_img') }}
 
-				{{ Form::label('body', "Post Body:") }}
-				{{ Form::textarea('body', null, array('class' => 'form-control')) }}
+				{{ Form::label('content', "Content:") }}
+				{{ Form::textarea('content', null, array('class' => 'form-control')) }}
 
 				{{ Form::submit('Create Post', array('class' => 'btn btn-success btn-lg btn-block', 'style' => 'margin-top: 20px;')) }}
 			{!! Form::close() !!}
@@ -64,8 +64,8 @@
 
 @section('scripts')
 
-	{!! Html::script('js/parsley.min.js') !!}
-	{!! Html::script('js/select2.min.js') !!}
+	{!! Html::script('js/parsley.js') !!}
+	{!! Html::script('js/select2.js') !!}
 
 	<script type="text/javascript">
 		$('.select2-multi').select2();

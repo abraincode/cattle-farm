@@ -23,7 +23,7 @@
 				<thead>
 					<th>#</th>
 					<th>Title</th>
-					<th>Body</th>
+					<th>Content</th>
 					<th>Created At</th>
 					<th></th>
 				</thead>
@@ -35,7 +35,7 @@
 						<tr>
 							<th>{{ $post->id }}</th>
 							<td>{{ $post->title }}</td>
-							<td>{{ substr(strip_tags($post->body), 0, 50) }}{{ strlen(strip_tags($post->body)) > 50 ? "..." : "" }}</td>
+							<td>{{ substr(strip_tags($post->content), 0, 50) }}{{ strlen(strip_tags($post->content)) > 50 ? "..." : "" }}</td>
 							<td>{{ date('M j, Y', strtotime($post->created_at)) }}</td>
 							<td><a href="{{ route('admin.post.show', $post->id) }}" class="btn btn-default btn-sm">View</a> <a href="{{ route('admin.post.edit', $post->id) }}" class="btn btn-default btn-sm">Edit</a></td>
 						</tr>
