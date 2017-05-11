@@ -56,6 +56,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
   Route::delete('/post/{id}', 'PostController@destroy')->name('admin.post.destroy');
   Route::put('/post/{id}', 'PostController@update')->name('admin.post.update');
   Route::get('/post/{id}', 'PostController@show')->name('admin.post.show');
+  // Route::get('/post/{slug}', 'PostController@showSlug')->name('admin.post.show.slug')->where('slug', '[\w\d\-\_]+');
   Route::get('/post/{id}/edit', 'PostController@edit')->name('admin.post.edit');
 
   // Category
