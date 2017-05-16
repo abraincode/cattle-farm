@@ -17,7 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', function () {
+    return redirect()->route('admin.post.index');
+});
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('nerds', 'NerdController');
@@ -44,13 +46,35 @@ Route::post('/test-request', function () {
 Route::get('/', 'PageController@home')->name('page.home');
 Route::get('/about', 'PageController@about')->name('page.about');
 Route::get('/blog', 'PageController@blog')->name('page.blog');
+Route::get('/blog/{id}', 'PageController@blog')->name('page.blog.show');
 Route::get('/contact', 'PageController@contact')->name('page.contact');
 
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+  Route::post('/post', 'PostController@store')->name('admin.post.store');
+  Route::get('/post', 'PostController@index')->name('admin.post.index');
+  Route::get('/post/create', 'PostController@create')->name('admin.post.create');
+  Route::delete('/post/{id}', 'PostController@destroy')->name('admin.post.destroy');
+  Route::put('/post/{id}', 'PostController@update')->name('admin.post.update');
+  Route::get('/post/{id}', 'PostController@show')->name('admin.post.show');
+  // Route::get('/post/{slug}', 'PostController@showSlug')->name('admin.post.show.slug')->where('slug', '[\w\d\-\_]+');
+  Route::get('/post/{id}/edit', 'PostController@edit')->name('admin.post.edit');
 
-Route::post('/blog', 'BlogController@store')->name('blog.store');
-//Route::get('/blog', 'BlogController@index')->name('blog.index');
-Route::get('/blog/create', 'BlogController@create')->name('blog.create');
-Route::delete('/blog/{id}', 'BlogController@destroy')->name('blog.destroy');
-Route::put('/blog/{id}', 'BlogController@update')->name('blog.update');
-Route::get('/blog/{id}', 'BlogController@show')->name('blog.show');
-Route::get('/blog/{id}/edit', 'BlogController@edit')->name('blog.edit');
+  // Category
+  Route::post('/category', 'CategoryController@store')->name('admin.category.store');
+  Route::get('/category', 'CategoryController@index')->name('admin.category.index');
+  Route::get('/category/create', 'CategoryController@create')->name('admin.category.create');
+  Route::delete('/category/{id}', 'CategoryController@destroy')->name('admin.category.destroy');
+  Route::put('/category/{id}', 'CategoryController@update')->name('admin.category.update');
+  Route::get('/category/{id}', 'CategoryController@show')->name('admin.category.show');
+  Route::get('/category/{id}/edit', 'CategoryController@edit')->name('admin.category.edit');
+
+  // Tags
+  Route::post('/tags', 'TagController@store')->name('admin.tags.store');
+  Route::get('/tags', 'TagController@index')->name('admin.tags.index');
+  Route::get('/tags/create', 'TagController@create')->name('admin.tags.create');
+  Route::delete('/tags/{id}', 'TagController@destroy')->name('admin.tags.destroy');
+  Route::put('/tags/{id}', 'TagController@update')->name('admin.tags.update');
+  Route::get('/tags/{id}', 'TagController@show')->name('admin.tags.show');
+  Route::get('/tags/{id}/edit', 'TagController@edit')->name('admin.tags.edit');
+
+});

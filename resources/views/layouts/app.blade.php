@@ -44,6 +44,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
+                        <li class="dropdown">
+                          <li><a href="{{ route('page.home') }}">Home</a></li>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -55,20 +58,22 @@
                         @else
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                  Daftar <span class="caret"></span>
+                                  Lists <span class="caret"></span>
                               </a>
                               <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ route('mahasiswa.index') }}">Mahasiswa</a></li>
-                                <li><a href="{{ route('nerds.index') }}">Nerds</a></li>
+                                <li><a href="{{ route('admin.post.index') }}">Posts</a></li>
+                                <li><a href="{{ route('admin.category.index') }}">Category</a></li>
+                                <li><a href="{{ route('admin.tags.index') }}">Tags</a></li>
                               </ul>
                             </li>
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                  Tambah <span class="caret"></span>
+                                  Add <span class="caret"></span>
                               </a>
                               <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ route('mahasiswa.create') }}">Mahasiswa</a></li>
-                                <li><a href="{{ route('nerds.create') }}">Nerds</a></li>
+                                <li><a href="{{ route('admin.post.create') }}">Posts</a></li>
+                                <li><a href="{{ route('admin.category.create') }}">Category</a></li>
+                                <li><a href="{{ route('admin.tags.create') }}">Tags</a></li>
                               </ul>
                             </li>
                             <li class="dropdown">

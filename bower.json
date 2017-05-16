@@ -1,0 +1,21 @@
+{
+  "name": "cattle-farm",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Dhimas Akbar N.B <dhimasakbarnoorbaihaque@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/dhimasanb/cattle-farm",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "parsleyjs": "^2.7.2",
+    "select2": "^4.0.3"
+  }
+}

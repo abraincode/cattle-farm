@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class PageController extends Controller
 {
@@ -24,6 +25,12 @@ class PageController extends Controller
     public function blog()
     {
         return view('page.blog');
+    }
+
+    public function blogShow($id)
+    {
+        $post = Post::findOrFail($id);
+        return view('page.blog-show', compact('post'));
     }
 
     public function contact()
